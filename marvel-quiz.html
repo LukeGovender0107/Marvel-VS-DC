@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Marvel Quiz</title>
+</head>
+<body class="quiz-body">
+  <div class="quiz-container">
+    <h1 class="quiz-title">MARVEL HERO MATCH QUIZ</h1>
+
+    <form id="quiz-form">
+      <div class="question">
+        <p>1. What motivates you the most?</p>
+        <label><input type="radio" name="q1" value="justice" required /> Justice</label><br/>
+        <label><input type="radio" name="q1" value="power" /> Power</label><br/>
+        <label><input type="radio" name="q1" value="freedom" /> Freedom</label><br/>
+        <label><input type="radio" name="q1" value="knowledge" /> Knowledge</label>
+      </div>
+
+      <div class="question">
+        <p>2. What’s your ideal superpower?</p>
+        <label><input type="radio" name="q2" value="strength" required /> Super Strength</label><br/>
+        <label><input type="radio" name="q2" value="speed" /> Super Speed</label><br/>
+        <label><input type="radio" name="q2" value="intellect" /> Genius Intellect</label><br/>
+        <label><input type="radio" name="q2" value="flight" /> Flight</label>
+      </div>
+
+      <button type="submit" class="submit-button">Submit Answers</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('quiz-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const q1 = document.querySelector('input[name="q1"]:checked').value;
+      const q2 = document.querySelector('input[name="q2"]:checked').value;
+
+      // Save answers to localStorage (or use for calculation)
+      localStorage.setItem('marvel-answers', JSON.stringify({ q1, q2 }));
+
+      // Redirect to result page
+      window.location.href = "marvel-result.html";
+    });
+  </script>
+</body>
+</html>

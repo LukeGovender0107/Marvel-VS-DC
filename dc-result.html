@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link rel="stylesheet" href="style.css" />
+  <title>Your DC Hero</title>
+</head>
+<body class="result-body">
+  <div class="result-container">
+    <h1 class="result-title">You Are...</h1>
+    <div id="hero-card" class="hero-card">
+      <!-- Hero info will be injected here -->
+    </div>
+  </div>
+
+  <script>
+    const answers = JSON.parse(localStorage.getItem('marvel-answers'));
+    let hero = {
+      name: "Aquaman",
+      image: "Images/DC/Aquaman.jpg",
+      description: "You're witty, agile, and always fight for the little guy.",
+      power: "Tier 1"
+    };
+
+    // Basic logic (expand later)
+    if (answers.q1 === "power" && answers.q2 === "strength") {
+      hero = {
+        name: "Wonder Women",
+        image: "Images/DC/Wonderwomen.jpg",
+        description: "You're unstoppable, raw power with a strong sense of rage and justice.",
+        power: "Tier 3"
+      };
+    } else if (answers.q1 === "knowledge" && answers.q2 === "intellect") {
+      hero = {
+        name: "Batman",
+        image: "Images/DC/Batman.jpg",
+        description: "You're a genius inventor who relies on brains over brawn.",
+        power: "Tier 2"
+      };
+    } else if (answers.q1 === "justice" && answers.q2 === "flight") {
+      hero = {
+        name: "Superman",
+        image: "Images/DC/Superman.jpg",
+        description: "You're a noble warrior with the power of a god.",
+        power: "Tier 4"
+      };
+    }
+
+    const heroCard = document.getElementById("hero-card");
+    heroCard.innerHTML = `
+      <img src="${hero.image}" alt="${hero.name}" class="hero-image"/>
+      <h2>${hero.name}</h2>
+      <p>${hero.description}</p>
+      <span class="power-tier">Power Level: ${hero.power}</span>
+    `;
+  </script>
+</body>
+</html>
