@@ -9,17 +9,29 @@
 <body class="choose-side-body">
   <div class="choose-container">
     <h1 class="choose-title">CHOOSE YOUR SIDE</h1>
+
     <div class="factions">
-      <a href="marvel-quiz.html" class="side-card marvel-card">
-        <img src="Images/Marvel_Start.jpg" alt="Marvel Logo" />
-        <span class="label">MARVEL</span>
+
+      <a href="Marvel/marvel-quiz.html" class="side-card marvel-card" onclick="setSide('marvel')">
+        <img src="Images/Marvel.webp" alt="Marvel Logo" />
       </a>
 
-      <a href="dc-quiz.html" class="side-card dc-card">
+      <a href="DC/dc-quiz.html" class="side-card dc-card" onclick="setSide('marvel')">
         <img src="Images/DC_Start.jpg" alt="DC Logo" />
-        <span class="label">DC</span>
       </a>
     </div>
   </div>
+
+<script>
+  function setSide(side) {
+    localStorage.setItem("heroSide", side);
+  }
+
+  const savedSide = localStorage.getItem("heroSide");
+  if (savedSide) {
+    window.location.href = `${savedSide}/${savedSide}-quiz.html`;
+  }
+</script>
+
 </body>
 </html>

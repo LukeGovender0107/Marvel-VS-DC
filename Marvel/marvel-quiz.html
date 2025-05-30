@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="style.css" />
-  <title>DC Quiz</title>
+  <link rel="stylesheet" href="../style.css" />
+  <title>Marvel Quiz</title>
 </head>
 <body class="quiz-body">
   <div class="quiz-container">
-    <h1 class="quiz-title">DC HERO MATCH QUIZ</h1>
+    <h1 class="quiz-title">MARVEL HERO MATCH QUIZ</h1>
 
     <form id="quiz-form">
       <div class="question">
@@ -42,7 +42,7 @@
       localStorage.setItem('marvel-answers', JSON.stringify({ q1, q2 }));
 
       // Redirect to result page
-      window.location.href = "dc-result.html";
+      window.location.href = "marvel-result.html";
     });
   </script>
 </body>
